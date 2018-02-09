@@ -1,0 +1,84 @@
+/* This file is for your main application css. */
+
+body {
+  color: #f5f0f0 !important;
+  background: url("../../images/background.jpg")
+}
+
+.container {
+  touch-action: none;
+
+}
+
+.building {
+  padding: 10px;
+
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.building button {
+  color: #FFDD1B;
+  font-family: Pacifico;
+}
+
+.building button:hover {
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate;
+}
+
+.building img {
+  width: 105px;
+  border: 3px solid gold;
+}
+.building button {
+  width: 128px;
+  height: 128px;
+  border-radius: 64px;
+}
+button {
+  border: 1px solid green;
+  background-color: white;
+}
+button[disabled] {
+  border: 1px solid red;
+  background-color: gray;
+}
+
+.clicker {
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 64px;
+  width: 128px;
+  height: 128px;
+  outline: none;
+  background: url('/images/pickaxe.png') no-repeat;
+  cursor: pointer;
+}
+
+.wood { background: url('/images/boomstam.png') no-repeat; }
+.coal { background: url('/images/kool.png') no-repeat; }
+.robots { background: url('/images/robot.png') no-repeat; }
+.tree { background: url('/images/boom.png') no-repeat; }
+.mine { background: url('/images/mijn.png') no-repeat; }
+
+.buildings, .topbar {
+  display: flex;
+}
+
+.topbar > div {
+  padding: 40px;
+  font-size: 1.5em;
+}
+
+@-webkit-keyframes neon3 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+}
