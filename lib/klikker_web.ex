@@ -40,6 +40,9 @@ defmodule KlikkerWeb do
       import KlikkerWeb.Router.Helpers
       import KlikkerWeb.ErrorHelpers
       import KlikkerWeb.Gettext
+
+      # Render a react_component()
+      import ReactPhoenix.ClientSide
     end
   end
 

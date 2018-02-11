@@ -42,6 +42,7 @@ body {
 button {
   border: 1px solid green;
   background-color: white;
+  color: black !important;
 }
 button[disabled] {
   border: 1px solid red;

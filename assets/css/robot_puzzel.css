@@ -1,0 +1,79 @@
+#robot_puzzel .grid {
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  grid-gap: 8px;
+  grid-auto-rows: minmax(80px, auto);
+}
+
+#robot_puzzel .grid .cell {
+  border: 3px solid white;
+  background-color: gray;
+  position: relative;
+}
+
+#robot_puzzel .grid .cell.red {
+  background-color: red;
+}
+
+#robot_puzzel .grid .cell.green {
+  background-color: green;
+}
+
+#robot_puzzel .grid .cell.blue {
+  background-color: blue;
+}
+
+#robot_puzzel .grid .cell.yellow {
+  background-color: yellow;
+}
+
+#robot_puzzel .grid .cell.purple {
+  background-color: purple;
+}
+
+#robot_puzzel .grid .cell.orange {
+  background-color: orange;
+}
+
+#robot_puzzel .grid .exit {
+  background-color: dimgray;
+  /*border: 3px solid red;*/
+}
+
+#robot_puzzel .grid .cell.exit:after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: red;
+  z-index: -1;
+}
+
+#robot_puzzel .grid .cell.selected:after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: silver;
+  z-index: -1;
+}
+
+#robot_puzzel .grid .cell.highlighted:after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: silver;
+  z-index: -1;
+}
+
+#robot_puzzel .grid .cell.red.exit {
+  border-color: gold;
+  background-color: darkred;
+}

@@ -17,6 +17,7 @@ defmodule KlikkerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/robot_puzzel", PageController, :robot_puzzel
   end
 
   # Other scopes may use custom stacks.

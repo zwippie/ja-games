@@ -12,7 +12,10 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
+import "react-phoenix"
+
 import Klikker from "./klikker.js"
+import RobotPuzzel from "./RobotPuzzel.js"
 
 // Import local files
 //
@@ -21,10 +24,18 @@ import Klikker from "./klikker.js"
 
 // import socket from "./socket"
 
-import React from "react"
-import ReactDOM from "react-dom"
+// import React from "react"
+// import ReactDOM from "react-dom"
 
-ReactDOM.render(
-  <Klikker name="jaja"/>,
-  document.getElementById("main")
-);
+// ReactDOM.render(
+//   <Klikker name="jaja"/>,
+//   document.getElementById("main")
+// );
+
+
+// Expose all mountable components to phoenix-react's
+// react_component view function.
+window.Components = {
+  Klikker,
+  RobotPuzzel
+}
