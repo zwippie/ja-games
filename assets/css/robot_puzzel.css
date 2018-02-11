@@ -1,14 +1,29 @@
+#robot_puzzel .no_moves {
+  margin: 10px;
+  line-height: 2.5em;
+}
+
 #robot_puzzel .grid {
   display: grid;
   grid-template-columns: repeat(5, 80px);
   grid-gap: 8px;
   grid-auto-rows: minmax(80px, auto);
+  margin: 10px 0;
 }
 
 #robot_puzzel .grid .cell {
   border: 3px solid white;
   background-color: gray;
   position: relative;
+  text-align: center;
+  font-size: 3em;
+  padding-top: 17px;
+  color: darkgrey;
+}
+
+#robot_puzzel .grid .cell span {
+  font-size: 12px;
+  float: left;
 }
 
 #robot_puzzel .grid .cell.red {
@@ -24,7 +39,7 @@
 }
 
 #robot_puzzel .grid .cell.yellow {
-  background-color: yellow;
+  background-color: darkkhaki;
 }
 
 #robot_puzzel .grid .cell.purple {

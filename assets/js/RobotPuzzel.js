@@ -33,7 +33,7 @@ class RobotPuzzel extends React.Component {
 
     return (
       <div id="robot_puzzel">
-        <h1>RobotPuzzel</h1>
+        <h1>Robot Puzzel</h1>
         <RobotGrid initialSetup={initialSetup} debug={debug} />
         <label>
           <input type="checkbox" checked={debug} onChange={this.handleDebugChange} />

@@ -69,21 +69,35 @@ function findTargetSpots(cells, fromIndex) {
   return result
 }
 
+const robotIconClasses = {
+  "red": "glyphicon glyphicon-king",
+  "green": "glyphicon glyphicon-asterisk",
+  "blue": "glyphicon glyphicon-tint",
+  "yellow": "glyphicon glyphicon-sunglasses",
+  "purple": "glyphicon glyphicon-plane",
+  "orange": "glyphicon glyphicon-flash"
+}
+
 class RobotGrid extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
+    this.state = this.initialState()
+  }
+
+  initialState() {
+    return({
       cells: this.loadInitialSetup(),
       selectedCellIndex: undefined,
       highlightedCellIndices: [],
-      solved: false
-    }
+      solved: false,
+      noMovesMade: 0
+    })
   }
 
   render() {
     const {debug, baseIndex} = this.props
-    const {selectedCellIndex, highlightedCellIndices, solved} = this.state
+    const {selectedCellIndex, highlightedCellIndices, solved, noMovesMade} = this.state
 
     const cells = this.state.cells.map((cell) => {
       const contents = debug ? `${cell.index} ${cell.color}` : ""
@@ -92,7 +106,8 @@ class RobotGrid extends React.Component {
         cell.color,
         cell.index === baseIndex ? 'exit' : '',
         cell.index === selectedCellIndex ? 'selected' : '',
-        highlightedCellIndices.includes(cell.index) ? 'highlighted' : ''
+        highlightedCellIndices.includes(cell.index) ? 'highlighted' : '',
+        robotIconClasses[cell.color]
       ]
       const className = styles.filter(style => style !== '').join(' ')
 
@@ -104,6 +119,15 @@ class RobotGrid extends React.Component {
     })
 
     const className = solved ? "grid solved" : "grid"
+    let noMovesMadeText = ""
+    switch(noMovesMade) {
+      case 0: noMovesMadeText = "Geen zetten gedaan"; break;
+      case 1: noMovesMadeText = "1 zet gedaan"; break;
+      default: noMovesMadeText = `${noMovesMade} zetten gedaan`
+    }
+    if (solved) {
+      noMovesMadeText = `Goed gedaan! Opgelost in ${noMovesMade} zetten.`
+    }
 
     return (
       <div>
@@ -113,6 +137,7 @@ class RobotGrid extends React.Component {
         <div className="btn-toolbar">
           <button className="btn" onClick={this.reset.bind(this)}>Reset</button>
           <button className="btn" onClick={this.newGame.bind(this)}>Nieuwe puzzel</button>
+          <span className="no_moves">{noMovesMadeText}</span>
         </div>
       </div>
     )
@@ -120,7 +145,7 @@ class RobotGrid extends React.Component {
 
   onCellClick(clickedCell, event) {
     const {baseIndex} = this.props
-    const {cells, selectedCellIndex, highlightedCellIndices, solved} = this.state
+    const {cells, selectedCellIndex, highlightedCellIndices, solved, noMovesMade} = this.state
 
     // Nothing more to do
     if (solved) {
@@ -149,13 +174,14 @@ class RobotGrid extends React.Component {
         }
         return cell
       })
-      const solved = baseIndex === clickedCell.index
+      const solved = (baseIndex === clickedCell.index) && (newColor === "red")
 
       this.setState({
         selectedCellIndex: undefined,
         highlightedCellIndices: [],
         cells: newCells,
-        solved: solved
+        solved: solved,
+        noMovesMade: noMovesMade + 1
       })
       return
     }
@@ -176,7 +202,8 @@ class RobotGrid extends React.Component {
       cells: this.loadInitialSetup(),
       selectedCellIndex: undefined,
       highlightedCellIndices: [],
-      solved: false
+      solved: false,
+      noMovesMade: 0
     })
   }
 
