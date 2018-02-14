@@ -9,30 +9,33 @@
 
     <title>JA Games</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   </head>
 
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          JA Games
-        </a>
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            JA Games
+          </a>
 
-        <button class="button navbar-burger" data-target="navMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div class="navbar-menu" id="navMenu">
-        <div class="navbar-start">
-          <%= link("Klikker", to: "/", class: "navbar-item") %>
-          <%= link("Lunar Landing", to: "/robot_puzzel", class: "navbar-item") %>
+          <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+          <div class="navbar-start">
+            <%= link("Klikker", to: "/", class: "navbar-item") %>
+            <%= link("Lunar Landing", to: "/lunar_landing", class: "navbar-item") %>
+          </div>
         </div>
       </div>
     </nav>
 
-    <section>
+    <section class="section">
       <main role="main" class="container">
         <%= render @view_module, @view_template, assigns %>
       </main>

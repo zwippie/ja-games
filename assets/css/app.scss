@@ -1,6 +1,15 @@
 /* This file is for your main application css. */
 
+// Why is this not working!
+// @import "sass/utilities/initial-variables";
+// @import "sass/utilities/functions";
+// @import "sass/utilities/derived-variables"
+
 @import "bulma";
+
+h1.title {
+  color: white
+}
 
 body {
   color: #f5f0f0 !important;
@@ -11,4 +20,3 @@ body {
   /*touch-action: none;*/
 
 }
-

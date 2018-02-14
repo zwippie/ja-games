@@ -1,1 +1,3 @@
+<h1 class="title">Lunar Landing</h1>
+
 <%= react_component("Components.RobotPuzzel", %{initialSetup: Klikker.RobotPuzzel.Generator.generate}) %>

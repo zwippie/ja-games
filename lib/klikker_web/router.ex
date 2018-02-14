@@ -17,13 +17,13 @@ defmodule KlikkerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/robot_puzzel", PageController, :robot_puzzel
+    get "/lunar_landing", PageController, :lunar_landing
   end
 
   # Other scopes may use custom stacks.
   scope "/api", KlikkerWeb do
     pipe_through :api
 
-    get "/robot_puzzel", PageController, :new_robot_puzzel
+    get "/lunar_landing", PageController, :new_lunar_landing
   end
 end

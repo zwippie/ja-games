@@ -22,7 +22,7 @@ class RobotPuzzel extends React.Component {
   }
 
   handleNewGame() {
-    fetch("/api/robot_puzzel")
+    fetch("/api/lunar_landing")
       .then(response => response.json())
       .then(data => this.setState({setup: data.grid}))
   }
@@ -31,8 +31,7 @@ class RobotPuzzel extends React.Component {
     const {debug, setup} = this.state
 
     return (
-      <div id="robot_puzzel">
-        <h1>Robot Puzzel</h1>
+      <div id="lunar_landing">
         <RobotGrid initialSetup={setup} debug={debug} onNewGame={this.handleNewGame} />
         <label>
           <input type="checkbox" checked={debug} onChange={this.handleDebugChange} />

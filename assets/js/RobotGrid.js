@@ -70,12 +70,12 @@ function findTargetSpots(cells, fromIndex) {
 }
 
 const robotIconClasses = {
-  "red": "glyphicon glyphicon-king",
-  "green": "glyphicon glyphicon-asterisk",
-  "blue": "glyphicon glyphicon-tint",
-  "yellow": "glyphicon glyphicon-sunglasses",
-  "purple": "glyphicon glyphicon-plane",
-  "orange": "glyphicon glyphicon-flash"
+  "red": "fab fa-android",
+  "green": "",
+  "blue": "",
+  "yellow": "",
+  "purple": "",
+  "orange": ""
 }
 
 class RobotGrid extends React.Component {
