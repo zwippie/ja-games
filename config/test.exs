@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :klikker, Klikker.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "arnold",
+  password: "arnold",
   database: "klikker_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

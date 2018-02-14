@@ -18,13 +18,13 @@ defmodule KlikkerWeb.Router do
 
     get "/", PageController, :index
     get "/klikker", PageController, :klikker
-    get "/lunar_landing", PageController, :lunar_landing
+    get "/lunar_lander", PageController, :lunar_lander
   end
 
   # Other scopes may use custom stacks.
   scope "/api", KlikkerWeb do
     pipe_through :api
 
-    get "/lunar_landing", PageController, :new_lunar_landing
+    get "/lunar_lander", PageController, :new_lunar_lander
   end
 end
