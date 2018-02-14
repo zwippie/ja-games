@@ -8,36 +8,37 @@
     <meta name="author" content="">
 
     <title>JA Games</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <h1>JA Games</h1>
-      </header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          JA Games
+        </a>
 
-      <nav>
-        <div class="btn-toolbar" role="toolbar">
-          <div class="btn-group" role="group">
-            <%= link("Klikker", to: "/", class: "btn btn-default") %>
-            <%= link("Lunar Landing", to: "/robot_puzzel", class: "btn btn-default") %>
-          </div>
+        <button class="button navbar-burger" data-target="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+          <%= link("Klikker", to: "/", class: "navbar-item") %>
+          <%= link("Lunar Landing", to: "/robot_puzzel", class: "navbar-item") %>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-    <!--
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-    -->
-
-      <main role="main">
+    <section>
+      <main role="main" class="container">
         <%= render @view_module, @view_template, assigns %>
       </main>
+    </section>
 
-    </div> <!-- /container -->
+
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

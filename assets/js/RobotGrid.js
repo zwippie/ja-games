@@ -134,9 +134,9 @@ class RobotGrid extends React.Component {
         <div className={className}>
           {cells}
         </div>
-        <div className="btn-toolbar">
-          <button className="btn" onClick={this.reset.bind(this)}>Reset</button>
-          <button className="btn" onClick={this.newGame.bind(this)}>Nieuwe puzzel</button>
+        <div className="buttons">
+          <span className="button" onClick={this.reset.bind(this)}>Reset</span>
+          <span className="button" onClick={this.newGame.bind(this)}>Nieuwe puzzel</span>
           <span className="no_moves">{noMovesMadeText}</span>
         </div>
       </div>
