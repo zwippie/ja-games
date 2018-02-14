@@ -5,6 +5,10 @@ defmodule KlikkerWeb.PageController do
     render conn, "index.html"
   end
 
+  def klikker(conn, _params) do
+    render conn, "klikker.html"
+  end
+
   def lunar_landing(conn, _params) do
     render conn, "lunar_landing.html"
   end

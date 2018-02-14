@@ -17,6 +17,7 @@ defmodule KlikkerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/klikker", PageController, :klikker
     get "/lunar_landing", PageController, :lunar_landing
   end
 

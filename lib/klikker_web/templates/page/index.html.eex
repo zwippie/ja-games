@@ -1,1 +1,5 @@
-<%= react_component("Components.Klikker") %>
+<h1 class="title">JA Games</h1>
+
+<p>
+  Deze games zijn gemaakt door Jelle en Arnold.
+</p>
