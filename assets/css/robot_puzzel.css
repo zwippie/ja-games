@@ -11,6 +11,10 @@
   margin: 10px 0;
 }
 
+#robot_puzzel .grid.solved .cell.exit {
+  animation: solved 1s infinite;
+}
+
 #robot_puzzel .grid .cell {
   border: 3px solid white;
   background-color: gray;
@@ -88,7 +92,13 @@
   z-index: -1;
 }
 
-#robot_puzzel .grid .cell.red.exit {
-  border-color: gold;
-  background-color: darkred;
+@-webkit-keyframes solved {
+  0%, 49% {
+    background-color: red;
+    color: white;
+  }
+  50%, 100% {
+    background-color: dimgray;
+    color: red;
+  }
 }

@@ -8,4 +8,8 @@ defmodule KlikkerWeb.PageController do
   def robot_puzzel(conn, _params) do
     render conn, "robot_puzzel.html"
   end
+
+  def new_robot_puzzel(conn, _params) do
+    json conn, %{grid: Klikker.RobotPuzzel.Generator.generate}
+  end
 end

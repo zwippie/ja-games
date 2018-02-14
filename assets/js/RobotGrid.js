@@ -163,7 +163,6 @@ class RobotGrid extends React.Component {
 
     // Move to target
     if (selectedCellIndex !== undefined && highlightedCellIndices.includes(clickedCell.index)) {
-      console.log("Move to", clickedCell.index)
       const newColor = cells[selectedCellIndex].color
       const newCells = cells.map((cell) => {
         if (cell.index === selectedCellIndex) {
@@ -189,7 +188,6 @@ class RobotGrid extends React.Component {
     // Select cell and show target spots
     if (clickedCell.color !== "") {
       const targetSpots = findTargetSpots(cells, clickedCell.index)
-      console.log(clickedCell, targetSpots)
       this.setState({
         selectedCellIndex: clickedCell.index,
         highlightedCellIndices: targetSpots
@@ -198,17 +196,17 @@ class RobotGrid extends React.Component {
   }
 
   reset() {
-    this.setState({
-      cells: this.loadInitialSetup(),
-      selectedCellIndex: undefined,
-      highlightedCellIndices: [],
-      solved: false,
-      noMovesMade: 0
-    })
+    this.setState(this.initialState())
   }
 
   newGame() {
-    window.location.reload()
+    this.props.onNewGame()
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.initialSetup !== this.props.initialSetup) {
+      this.reset()
+    }
   }
 
   loadInitialSetup() {
@@ -231,7 +229,8 @@ class RobotGrid extends React.Component {
 RobotGrid.propTypes = {
   initialSetup: PropTypes.array.isRequired,
   baseIndex: PropTypes.number,
-  debug: PropTypes.bool
+  debug: PropTypes.bool,
+  onNewGame: PropTypes.func.isRequired
 }
 
 RobotGrid.defaultProps = {

@@ -21,7 +21,9 @@ defmodule KlikkerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", KlikkerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", KlikkerWeb do
+    pipe_through :api
+
+    get "/robot_puzzel", PageController, :new_robot_puzzel
+  end
 end

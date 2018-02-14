@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  touch-action: none;
+  /*touch-action: none;*/
 
 }
 
