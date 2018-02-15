@@ -22,7 +22,7 @@ class RobotPuzzel extends React.Component {
   }
 
   handleNewGame() {
-    fetch("/api/lunar_landing")
+    fetch("/api/lunar_lander")
       .then(response => response.json())
       .then(data => this.setState({setup: data.grid}))
   }

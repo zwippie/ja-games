@@ -15,4 +15,14 @@ defmodule KlikkerWeb.PageControllerTest do
     conn = get conn, "/lunar_lander"
     assert html_response(conn, 200) =~ "Lunar Lander"
   end
+
+  test "GET /spijkerplank", %{conn: conn} do
+    conn = get conn, "/spijkerplank"
+    assert html_response(conn, 200) =~ "Projekt Spijkerplank"
+  end
+
+  test "GET /api/lunar_lander", %{conn: conn} do
+    conn = get conn, "/api/lunar_lander"
+    assert json_response(conn, 200)
+  end
 end

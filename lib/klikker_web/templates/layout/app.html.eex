@@ -29,7 +29,8 @@
         <div class="navbar-menu" id="navMenu">
           <div class="navbar-start">
             <%= link("Klikker", to: "/klikker", class: "navbar-item") %>
-            <%= link("Lunar Landing", to: "/lunar_landing", class: "navbar-item") %>
+            <%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %>
+            <%= link("Projekt Spijkerplank", to: "/spijkerplank", class: "navbar-item") %>
           </div>
         </div>
       </div>

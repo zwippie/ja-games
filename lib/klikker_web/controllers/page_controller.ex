@@ -13,7 +13,11 @@ defmodule KlikkerWeb.PageController do
     render conn, "lunar_lander.html"
   end
 
-  def new_lunar_landing(conn, _params) do
+  def spijkerplank(conn, _params) do
+    render conn, "spijkerplank.html"
+  end
+
+  def new_lunar_lander(conn, _params) do
     json conn, %{grid: Klikker.RobotPuzzel.Generator.generate}
   end
 end

@@ -19,6 +19,7 @@ defmodule KlikkerWeb.Router do
     get "/", PageController, :index
     get "/klikker", PageController, :klikker
     get "/lunar_lander", PageController, :lunar_lander
+    get "/spijkerplank", PageController, :spijkerplank
   end
 
   # Other scopes may use custom stacks.

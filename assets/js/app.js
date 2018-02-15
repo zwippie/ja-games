@@ -16,7 +16,8 @@ import "react-phoenix"
 
 import Klikker from "./klikker.js"
 import RobotPuzzel from "./RobotPuzzel.js"
-
+// import presets from "./spijkerplank/presets.js"
+import Spijkerplank from "./spijkerplank/Spijkerplank.js"
 // Import local files
 //
 // Local files can be imported directly using relative
@@ -37,7 +38,8 @@ import RobotPuzzel from "./RobotPuzzel.js"
 // react_component view function.
 window.Components = {
   Klikker,
-  RobotPuzzel
+  RobotPuzzel,
+  Spijkerplank
 }
 
 // Bulma hamburger menu
