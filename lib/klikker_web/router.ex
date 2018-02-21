@@ -28,5 +28,6 @@ defmodule KlikkerWeb.Router do
     pipe_through(:api)
 
     get("/lunar_lander", PageController, :new_lunar_lander)
+    resources "/spijkerplanken", SpijkerplankController, except: [:new, :edit]
   end
 end
