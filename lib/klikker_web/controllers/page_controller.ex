@@ -2,22 +2,22 @@ defmodule KlikkerWeb.PageController do
   use KlikkerWeb, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    render(conn, "index.html")
   end
 
   def klikker(conn, _params) do
-    render conn, "klikker.html"
+    render(conn, "klikker.html")
   end
 
   def lunar_lander(conn, _params) do
-    render conn, "lunar_lander.html"
+    render(conn, "lunar_lander.html")
   end
 
   def spijkerplank(conn, _params) do
-    render conn, "spijkerplank.html"
+    render(conn, "spijkerplank.html")
   end
 
   def new_lunar_lander(conn, _params) do
-    json conn, %{grid: Klikker.RobotPuzzel.Generator.generate}
+    json(conn, %{grid: Klikker.RobotPuzzel.Generator.generate()})
   end
 end
