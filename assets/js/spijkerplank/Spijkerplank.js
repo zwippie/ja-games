@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import ServerPresets from "./presets.js"
+// import ServerPresets from "./ServerPresets.js"
 
 function drawInlineSVG(svgElement, ctx, callback) {
   var svgURL = new XMLSerializer().serializeToString(svgElement)
@@ -20,11 +20,14 @@ function drawImageSVG(svgElement, ctx, callback) {
   img.src = svgElement.src
 }
 
+const presetsUrl = "/api/spijkerplanken"
+const choosePreset = {name: "Kies een voorbeeld...", segments: []}
+
 class Spijkerplank extends Component {
   constructor(props) {
     super(props)
 
-    this.presets = ServerPresets
+    // this.presets = new ServerPresets()
     this.state = {
       rows: props.rows,
       cols: props.cols,
@@ -36,7 +39,8 @@ class Spijkerplank extends Component {
       selectedIdx: false,
       mousePos: [0, 0],
       preview: "//:0",  // svg data url
-      example: this.presets[0].name, // name of preset
+      presets: [choosePreset],
+      example: "Kies een voorbeeld...", // this.presets.presets[0].name, // name of preset
       showJSON: false
     }
     this.grid = this.createGrid()
@@ -44,6 +48,11 @@ class Spijkerplank extends Component {
 
   componentDidMount() {
     this.save(false)
+
+    // Load presets
+    fetch(presetsUrl)
+    .then(response => response.json())
+    .then(json => this.setState({presets: json.data}))
   }
 
   render() {
@@ -162,7 +171,7 @@ class Spijkerplank extends Component {
 
   load(ev) {
     const oldSegments = this.state.segments
-    const segments = this.presets.find(preset => preset.name === this.state.example)
+    const segments = this.state.presets.find(preset => preset.name === this.state.example)
     this.setState({segments: segments.segments, selectedIdx: false}, () => {
       this.save()
       this.clear()
@@ -316,7 +325,7 @@ class Spijkerplank extends Component {
   }
 
   renderPresetOptions() {
-    return this.presets.map((preset, idx) => {
+    return this.state.presets.map((preset, idx) => {
       return <option key={idx} value={preset.name}>{preset.name}</option>
     })
   }
