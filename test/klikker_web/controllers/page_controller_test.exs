@@ -3,7 +3,7 @@ defmodule KlikkerWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "Jelle"
+    assert html_response(conn, 200) =~ "Jelle en Arnold"
   end
 
   test "GET /klikker", %{conn: conn} do
@@ -19,6 +19,11 @@ defmodule KlikkerWeb.PageControllerTest do
   test "GET /spijkerplank", %{conn: conn} do
     conn = get(conn, "/spijkerplank")
     assert html_response(conn, 200) =~ "Projekt Spijkerplank"
+  end
+
+  test "GET /santorini", %{conn: conn} do
+    conn = get(conn, "/santorini")
+    assert html_response(conn, 200) =~ "Santorini"
   end
 
   test "GET /api/lunar_lander", %{conn: conn} do

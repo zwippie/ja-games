@@ -1,0 +1,26 @@
+#santorini {
+  .board {
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    grid-gap: 8px;
+    grid-auto-rows: minmax(120px, auto);
+    margin: 10px 0;
+
+    padding: 8px;
+    width: 648px;
+    background-color: #e5e5e5;
+  }
+
+  .cell {
+    background-color: darkgreen;
+
+    .building {
+      margin: 6px;
+      height: 108px;
+    }
+  }
+
+  .player:hover {
+    stroke: cornflowerblue;
+  }
+}

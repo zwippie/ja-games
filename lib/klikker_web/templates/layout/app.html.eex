@@ -31,6 +31,7 @@
             <%= link("Klikker", to: "/klikker", class: "navbar-item") %>
             <%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %>
             <%= link("Projekt Spijkerplank", to: "/spijkerplank", class: "navbar-item") %>
+            <%= link("Santorini", to: "/santorini", class: "navbar-item") %>
           </div>
         </div>
       </div>

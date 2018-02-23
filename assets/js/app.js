@@ -18,6 +18,7 @@ import Klikker from "./klikker.js"
 import RobotPuzzel from "./RobotPuzzel.js"
 // import presets from "./spijkerplank/presets.js"
 import Spijkerplank from "./spijkerplank/Spijkerplank.js"
+import Santorini from "./santorini/Santorini.js"
 // Import local files
 //
 // Local files can be imported directly using relative
@@ -39,7 +40,8 @@ import Spijkerplank from "./spijkerplank/Spijkerplank.js"
 window.Components = {
   Klikker,
   RobotPuzzel,
-  Spijkerplank
+  Spijkerplank,
+  Santorini
 }
 
 // Bulma hamburger menu
