@@ -18,9 +18,23 @@
       margin: 6px;
       height: 108px;
     }
+
+    &.highlighted {
+      background-color: #3f539d;
+    }
+
+    &.selected {
+      .player {
+        stroke: white;
+      }
+    }
+
+    .player {
+      &.active:hover {
+        stroke: cornflowerblue;
+      }
+    }
   }
 
-  .player:hover {
-    stroke: cornflowerblue;
-  }
+
 }
