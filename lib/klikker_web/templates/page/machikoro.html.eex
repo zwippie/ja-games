@@ -1,0 +1,6 @@
+<div>
+  <h1 class="title">Machi Koro</h1>
+
+  <%= react_component("Components.MachiKoro", %{}) %>
+
+</div>

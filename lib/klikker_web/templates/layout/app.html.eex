@@ -32,6 +32,8 @@
             <%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %>
             <%= link("Projekt Spijkerplank", to: "/spijkerplank", class: "navbar-item") %>
             <%= link("Santorini", to: "/santorini", class: "navbar-item") %>
+            <%= link("Machi Koro", to: "/machikoro", class: "navbar-item") %>
+            <%= link("Dobbelen", to: "/dobbelen", class: "navbar-item") %>
           </div>
         </div>
       </div>

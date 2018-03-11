@@ -1,0 +1,6 @@
+<div>
+  <h1 class="title">Bordspel 1</h1>
+
+  <%= react_component("Components.Dobbelen", %{}) %>
+
+</div>
