@@ -26,7 +26,43 @@
             <span></span>
           </button>
         </div>
+
         <div class="navbar-menu" id="navMenu">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Denkspellen
+            </a>
+
+            <div class="navbar-dropdown">
+              <%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Bordpellen
+            </a>
+
+            <div class="navbar-dropdown">
+              <%= link("Santorini", to: "/santorini", class: "navbar-item") %>
+              <%= link("Machi Koro", to: "/machikoro", class: "navbar-item") %>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Overig
+            </a>
+
+            <div class="navbar-dropdown">
+              <%= link("Klikker", to: "/klikker", class: "navbar-item") %>
+              <%= link("Projekt Spijkerplank", to: "/spijkerplank", class: "navbar-item") %>
+              <%= link("Dobbelen", to: "/dobbelen", class: "navbar-item") %>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-menu is-hidden" id="navMenu_OLD">
           <div class="navbar-start">
             <%= link("Klikker", to: "/klikker", class: "navbar-item") %>
             <%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %>

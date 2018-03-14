@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 // const svgDiceBorder = <rect x="-1.42383" ry="5" rx="5" id="svg_5" height="120" width="120" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="#ffffff"/>
 // const svgDiceEyes = <circle stroke="#ffffff" id="svg_1" r="12" cy="60" cx="60" stroke-width="5" fill="#000000"/>
 
+Array.prototype.random = function () {
+  return this[Math.floor((Math.random()*this.length))];
+}
 
 const diceCoords = [
   [[60, 60]],
@@ -81,7 +84,10 @@ class Dobbelen extends React.Component {
 
   rollDice() {
     const {name, value} = this.state
-    const number = (name.toUpperCase() === "JELLE" ? value : Math.floor(Math.random() * 6) + 1)
+    const anneValue = [1, 2, 3, 4, 5, 6].filter(num => num !== value).random()
+    console.log(value, anneValue)
+    const number = (name.toUpperCase() === "JELLE" ? value :
+                   (name.toUpperCase() === "ANNE" ? anneValue : Math.floor(Math.random() * 6) + 1))
     this.setState({
       number: number,
       randomDice: randomDice(10),

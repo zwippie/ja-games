@@ -1,5 +1,11 @@
 <h1 class="title">JA Games</h1>
 
-<p>
-  Deze games zijn gemaakt door Jelle en Arnold.
-</p>
+<ul class="games-list">
+  <li><%= link("Klikker", to: "/klikker", class: "navbar-item") %></li>
+  <li><%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %></li>
+  <li><%= link("Projekt Spijkerplank", to: "/spijkerplank", class: "navbar-item") %></li>
+  <li><%= link("Santorini", to: "/santorini", class: "navbar-item") %></li>
+  <li><%= link("Machi Koro", to: "/machikoro", class: "navbar-item") %></li>
+  <li><%= link("Dobbelen", to: "/dobbelen", class: "navbar-item") %></li>
+</ul>
+
