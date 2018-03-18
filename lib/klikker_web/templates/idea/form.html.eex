@@ -1,0 +1,21 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <div class="field">
+    <%= label f, :name, "Je naam", class: "label" %>
+    <div class="control">
+      <%= text_input f, :name, class: "input" %>
+    </div>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="field">
+    <%= label f, :body, "Jouw idee", class: "label" %>
+    <div class="control">
+      <%= textarea f, :body, class: "textarea" %>
+    </div>
+    <%= error_tag f, :body %>
+  </div>
+
+  <div class="field">
+    <%= submit "Versturen", class: "button is-link" %>
+  </div>
+<% end %>

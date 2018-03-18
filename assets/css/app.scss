@@ -7,13 +7,13 @@
 
 @import "bulma";
 
-h1.title {
-  color: white
+h1.title, .label {
+  color: #d8d8d8;
 }
 
 body {
   color: #f5f0f0 !important;
-  background: url("../../images/background.jpg")
+  background: url("../../images/background.jpg") no-repeat
 }
 
 .container {
@@ -22,5 +22,7 @@ body {
 }
 
 .games-list {
-  background-color: white;
+  // background-color: white;
+  background: url("../images/smiley.jpg") no-repeat;
+  min-height: 538px;
 }

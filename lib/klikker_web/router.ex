@@ -24,6 +24,8 @@ defmodule KlikkerWeb.Router do
     get("/santorini", PageController, :santorini)
     get("/machikoro", PageController, :machikoro)
     get("/dobbelen", PageController, :dobbelen)
+
+    resources "/ideas", IdeaController
   end
 
   # Other scopes may use custom stacks.

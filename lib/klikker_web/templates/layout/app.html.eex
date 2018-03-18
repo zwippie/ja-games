@@ -61,22 +61,23 @@
             </div>
           </div>
         </div>
-
-        <div class="navbar-menu is-hidden" id="navMenu_OLD">
-          <div class="navbar-start">
-            <%= link("Klikker", to: "/klikker", class: "navbar-item") %>
-            <%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %>
-            <%= link("Projekt Spijkerplank", to: "/spijkerplank", class: "navbar-item") %>
-            <%= link("Santorini", to: "/santorini", class: "navbar-item") %>
-            <%= link("Machi Koro", to: "/machikoro", class: "navbar-item") %>
-            <%= link("Dobbelen", to: "/dobbelen", class: "navbar-item") %>
-          </div>
-        </div>
       </div>
     </nav>
 
     <section class="section">
       <main role="main" class="container">
+        <%= if get_flash(@conn, :info) do %>
+          <div class="notification is-primary">
+            <%= get_flash(@conn, :info) %>
+          </div>
+        <% end %>
+
+        <%= if get_flash(@conn, :error) do %>
+          <div class="notification is-danger">
+            <%= get_flash(@conn, :error) %>
+          </div>
+        <% end %>
+
         <%= render @view_module, @view_template, assigns %>
       </main>
     </section>

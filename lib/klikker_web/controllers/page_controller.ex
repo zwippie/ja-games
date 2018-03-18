@@ -1,8 +1,12 @@
 defmodule KlikkerWeb.PageController do
   use KlikkerWeb, :controller
 
+  alias Klikker.Games
+  alias Klikker.Games.Idea
+
   def index(conn, _params) do
-    render(conn, "index.html")
+    changeset = Games.change_idea(%Idea{})
+    render(conn, "index.html", changeset: changeset)
   end
 
   def klikker(conn, _params) do
