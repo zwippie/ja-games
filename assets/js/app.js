@@ -21,6 +21,8 @@ import Spijkerplank from "./spijkerplank/Spijkerplank.js"
 import Santorini from "./santorini/Santorini.js"
 import MachiKoro from "./machikoro/MachiKoro.js"
 import Dobbelen from "./dobbelen/Dobbelen.js"
+import Ganzenbord from "./ganzenbord/Ganzenbord.js"
+
 // Import local files
 //
 // Local files can be imported directly using relative
@@ -45,7 +47,8 @@ window.Components = {
   Spijkerplank,
   Santorini,
   MachiKoro,
-  Dobbelen
+  Dobbelen,
+  Ganzenbord
 }
 
 // Bulma hamburger menu

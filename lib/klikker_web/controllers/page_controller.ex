@@ -33,6 +33,14 @@ defmodule KlikkerWeb.PageController do
     render(conn, "dobbelen.html")
   end
 
+  def ganzenbord(conn, _params) do
+    render(conn, "ganzenbord.html")
+  end
+
+  def programmeren(conn, _params) do
+    render(conn, "programmeren.html")
+  end
+
   def new_lunar_lander(conn, _params) do
     json(conn, %{grid: Klikker.RobotPuzzel.Generator.generate()})
   end

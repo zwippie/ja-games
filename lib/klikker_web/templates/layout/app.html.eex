@@ -35,17 +35,19 @@
 
             <div class="navbar-dropdown">
               <%= link("Lunar Lander", to: "/lunar_lander", class: "navbar-item") %>
+              <%= link("Programmeren", to: "/programmeren", class: "navbar-item") %>
             </div>
           </div>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
-              Bordpellen
+              Bordspellen
             </a>
 
             <div class="navbar-dropdown">
               <%= link("Santorini", to: "/santorini", class: "navbar-item") %>
               <%= link("Machi Koro", to: "/machikoro", class: "navbar-item") %>
+              <%= link("Ganzenbord", to: "/ganzenbord", class: "navbar-item") %>
             </div>
           </div>
 

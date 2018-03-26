@@ -1,0 +1,6 @@
+<div>
+  <h1 class="title">Ganzenbord</h1>
+
+  <%= react_component("Components.Ganzenbord", %{}) %>
+
+</div>

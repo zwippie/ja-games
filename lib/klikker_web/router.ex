@@ -24,6 +24,8 @@ defmodule KlikkerWeb.Router do
     get("/santorini", PageController, :santorini)
     get("/machikoro", PageController, :machikoro)
     get("/dobbelen", PageController, :dobbelen)
+    get("/ganzenbord", PageController, :ganzenbord)
+    get("/programmeren", PageController, :programmeren)
 
     resources "/ideas", IdeaController
   end
