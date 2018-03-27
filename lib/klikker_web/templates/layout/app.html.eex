@@ -81,9 +81,10 @@
         <% end %>
 
         <%= render @view_module, @view_template, assigns %>
+
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JtkNpZ01EzY?rel=0&amp;showinfo=0&amp;start=53" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </main>
     </section>
-
 
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>

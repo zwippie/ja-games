@@ -13,6 +13,7 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 import "react-phoenix"
+import CodeMirror from "codemirror"
 
 import Klikker from "./klikker.js"
 import RobotPuzzel from "./RobotPuzzel.js"
@@ -75,5 +76,23 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  var myCodeMirror = CodeMirror(document.getElementById("editor"), {
+    value: "function myScript(){return 100;}\n",
+    mode:  "javascript"
+  });
+
+  var btnRun = document.getElementById("run");
+  var txtEditor = document.getElementById("editor");
+  var txtOutput = document.getElementById("output");
+
+  btnRun.addEventListener("click", function() {
+    // txtOutput.innerText = eval(txtEditor.innerText.replace(/\n/, ";"))
+    // console.log(txtEditor.innerText.split(/\n/))
+    // var code = txtEditor.innerText.replace(/\n/g, ';')
+    var code = myCodeMirror.getValue()
+    console.log(code)
+    txtOutput.innerText = new Function('"use strict";return (' + code + ')')();
+  })
 
 });
