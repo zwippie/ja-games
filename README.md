@@ -1,4 +1,10 @@
-# Klikker
+# JA Games
+
+Games made by Jelle en Arnold.
+
+[Online version](https://ja-games.herokuapp.com/)
+
+## Install and run
 
 To start your Phoenix server:
 
