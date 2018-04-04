@@ -16,16 +16,14 @@ defmodule KlikkerWeb.IdeaController do
 
   def create(conn, %{"idea" => idea_params}) do
     case Games.create_idea(idea_params) do
-      {:ok, idea} ->
+      {:ok, _idea} ->
         conn
         |> put_flash(:info, "Dankjewel voor je idee!")
         |> redirect(to: page_path(conn, :index))
-        # |> redirect(to: idea_path(conn, :show, idea))
       {:error, %Ecto.Changeset{} = changeset} ->
         conn
         |> put_flash(:error, "Dat klopt niet helemaal.")
         |> render(KlikkerWeb.PageView, :index, changeset: changeset)
-        # render(conn, "new.html", changeset: changeset)
     end
   end
 

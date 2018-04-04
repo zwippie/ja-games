@@ -17,6 +17,14 @@ config :klikker, KlikkerWeb.Endpoint,
   pubsub: [name: Klikker.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :klikker, Klikker.Auth.Guardian,
+       issuer: "klikker",
+       secret_key: "AyNT4S41F6T9LGt3olV+0EJPkGU/mjXhsvnmAH+3vy+Nxi3nGVZwdN3jCEbZxH+x"
+
+config :klikker, Klikker.Auth.Pipeline,
+  module: Klikker.Auth.Guardian,
+  error_handler: Klikker.Auth.ErrorHandler
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

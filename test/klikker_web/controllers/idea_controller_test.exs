@@ -27,19 +27,17 @@ defmodule KlikkerWeb.IdeaControllerTest do
   end
 
   describe "create idea" do
-    test "redirects to show when data is valid", %{conn: conn} do
+    test "redirects to root when data is valid", %{conn: conn} do
       conn = post conn, idea_path(conn, :create), idea: @create_attrs
+      assert redirected_to(conn) == page_path(conn, :index)
 
-      assert %{id: id} = redirected_params(conn)
-      assert redirected_to(conn) == idea_path(conn, :show, id)
-
-      conn = get conn, idea_path(conn, :show, id)
-      assert html_response(conn, 200) =~ "Show Idea"
+      conn = get conn, page_path(conn, :index)
+      assert html_response(conn, 200) =~ "Dankjewel voor je idee!"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, idea_path(conn, :create), idea: @invalid_attrs
-      assert html_response(conn, 200) =~ "New Idea"
+      assert html_response(conn, 200) =~ "Dat klopt niet helemaal."
     end
   end
 

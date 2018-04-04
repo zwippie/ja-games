@@ -63,6 +63,42 @@
             </div>
           </div>
         </div>
+
+        <div class="navbar-end">
+          <%= if Guardian.Plug.authenticated?(@conn, []) do %>
+            <div class="navbar-item">
+                <%= Guardian.Plug.current_resource(@conn).username %>
+            </div>
+
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link(to: "/logout", class: "button is-danger") do %>
+                    <span class="icon">
+                      <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                    <span>Uitloggen</span>
+                  <% end %>
+                </p>
+            </div>
+
+          <% else %>
+
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link(to: "/login", class: "button is-primary") do %>
+                    <span class="icon">
+                      <i class="fas fa-user-circle"></i>
+                    </span>
+                    <span>Inloggen</span>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
       </div>
     </nav>
 

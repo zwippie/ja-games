@@ -9,13 +9,21 @@ defmodule KlikkerWeb.Router do
     plug(:put_secure_browser_headers)
   end
 
+  pipeline :auth do
+    plug Klikker.Auth.Pipeline
+  end
+
+  pipeline :ensure_auth do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   pipeline :api do
     plug(:accepts, ["json"])
   end
 
   scope "/", KlikkerWeb do
     # Use the default browser stack
-    pipe_through(:browser)
+    pipe_through [:browser, :auth]
 
     get("/", PageController, :index)
     get("/klikker", PageController, :klikker)
@@ -26,6 +34,10 @@ defmodule KlikkerWeb.Router do
     get("/dobbelen", PageController, :dobbelen)
     get("/ganzenbord", PageController, :ganzenbord)
     get("/programmeren", PageController, :programmeren)
+
+    get("/login", PageController, :login)
+    post("/login", PageController, :login)
+    get("/logout", PageController, :logout)
 
     resources "/ideas", IdeaController
   end
