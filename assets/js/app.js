@@ -86,13 +86,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var txtEditor = document.getElementById("editor");
   var txtOutput = document.getElementById("output");
 
-  btnRun.addEventListener("click", function() {
-    // txtOutput.innerText = eval(txtEditor.innerText.replace(/\n/, ";"))
-    // console.log(txtEditor.innerText.split(/\n/))
-    // var code = txtEditor.innerText.replace(/\n/g, ';')
-    var code = myCodeMirror.getValue()
-    console.log(code)
-    txtOutput.innerText = new Function('"use strict";return (' + code + ')')();
-  })
+  if (btnRun) {
+    btnRun.addEventListener("click", function() {
+      // txtOutput.innerText = eval(txtEditor.innerText.replace(/\n/, ";"))
+      // console.log(txtEditor.innerText.split(/\n/))
+      // var code = txtEditor.innerText.replace(/\n/g, ';')
+      var code = myCodeMirror.getValue()
+      console.log(code)
+      txtOutput.innerText = new Function('"use strict";return (' + code + ')')();
+    })
+  }
 
 });

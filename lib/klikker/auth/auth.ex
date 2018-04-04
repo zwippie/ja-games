@@ -4,10 +4,9 @@ defmodule Klikker.Auth do
   """
 
   import Ecto.Query, warn: false
+
   alias Klikker.Repo
-
   alias Klikker.Auth.User
-
   alias Comeonin.Bcrypt
 
   @doc """

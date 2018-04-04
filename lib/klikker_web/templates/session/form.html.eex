@@ -1,0 +1,27 @@
+<%= if @maybe_user == nil do %>
+  <%= form_for @changeset, @action, fn f -> %>
+
+    <div class="field">
+      <%= label f, :username, class: "label" %>
+      <div class="control">
+        <%= text_input f, :username, class: "input" %>
+      </div>
+      <%= error_tag f, :username %>
+    </div>
+
+    <div class="field">
+      <%= label f, :password, class: "label" %>
+      <div class="control">
+        <%= password_input f, :password, class: "input" %>
+      </div>
+      <%= error_tag f, :password %>
+    </div>
+
+
+    <div class="form-group">
+      <%= submit "Inloggen", class: "button is-link" %>
+    </div>
+  <% end %>
+<% else %>
+  <h1>Zeg <%= @maybe_user.username%>, jij bent al ingelogd!</h1>
+<% end %>

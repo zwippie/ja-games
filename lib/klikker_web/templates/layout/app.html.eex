@@ -73,7 +73,7 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link(to: "/logout", class: "button is-danger") do %>
+                  <%= link(to: session_path(@conn, :delete, false), method: :delete, class: "button is-danger") do %>
                     <span class="icon">
                       <i class="fas fa-sign-out-alt"></i>
                     </span>
@@ -87,7 +87,7 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link(to: "/login", class: "button is-primary") do %>
+                  <%= link(to: session_path(@conn, :new), class: "button is-primary") do %>
                     <span class="icon">
                       <i class="fas fa-user-circle"></i>
                     </span>
@@ -118,7 +118,7 @@
 
         <%= render @view_module, @view_template, assigns %>
 
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JtkNpZ01EzY?rel=0&amp;showinfo=0&amp;start=53" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe class="youtube" width="560" height="315" src="https://www.youtube-nocookie.com/embed/JtkNpZ01EzY?rel=0&amp;showinfo=0&amp;start=53" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </main>
     </section>
 
