@@ -9,12 +9,14 @@ defmodule KlikkerWeb.Router do
     plug(:put_secure_browser_headers)
   end
 
+  # 'Maybe authenticated' pipeline
   pipeline :auth do
     plug Klikker.Auth.Pipeline
   end
 
+  # Add :auth and :ensure_auth to make a 'definitely authenticated' pipeline
   pipeline :ensure_auth do
-    plug Guardian.Plug.EnsureAuthenticated
+    plug Guardian.Plug.EnsureAuthenticated, error_handler: Klikker.Auth.ErrorHandler
   end
 
   pipeline :api do
@@ -22,7 +24,6 @@ defmodule KlikkerWeb.Router do
   end
 
   scope "/", KlikkerWeb do
-    # Use the default browser stack
     pipe_through [:browser, :auth]
 
     get("/", PageController, :index)
@@ -36,8 +37,14 @@ defmodule KlikkerWeb.Router do
     get("/programmeren", PageController, :programmeren)
 
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/ideas", IdeaController, only: [:create]
+  end
 
-    resources "/ideas", IdeaController
+  scope "/", KlikkerWeb do
+    pipe_through [:browser, :auth, :ensure_auth]
+
+    resources "/ideas", IdeaController, only: [:index, :delete]
+    get("/profile", PageController, :profile)
   end
 
   # Other scopes may use custom stacks.

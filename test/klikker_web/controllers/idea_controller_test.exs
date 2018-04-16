@@ -2,6 +2,8 @@ defmodule KlikkerWeb.IdeaControllerTest do
   use KlikkerWeb.ConnCase
 
   alias Klikker.Games
+  alias Klikker.Auth
+  alias Klikker.Auth.Guardian, as: KlikkerGuardian
 
   @create_attrs %{body: "some body", name: "some name"}
   @update_attrs %{body: "some updated body", name: "some updated name"}
@@ -12,7 +14,14 @@ defmodule KlikkerWeb.IdeaControllerTest do
     idea
   end
 
+  def fixture(:user) do
+    {:ok, user} = Auth.create_user(%{username: "username", password: "password"})
+    user
+  end
+
   describe "index" do
+    setup [:login_as_user]
+
     test "lists all ideas", %{conn: conn} do
       conn = get conn, idea_path(conn, :index)
       assert html_response(conn, 200) =~ "Listing Ideas"
@@ -20,6 +29,8 @@ defmodule KlikkerWeb.IdeaControllerTest do
   end
 
   describe "new idea" do
+    setup [:login_as_user]
+
     test "renders form", %{conn: conn} do
       conn = get conn, idea_path(conn, :new)
       assert html_response(conn, 200) =~ "New Idea"
@@ -42,7 +53,7 @@ defmodule KlikkerWeb.IdeaControllerTest do
   end
 
   describe "edit idea" do
-    setup [:create_idea]
+    setup [:login_as_user, :create_idea]
 
     test "renders form for editing chosen idea", %{conn: conn, idea: idea} do
       conn = get conn, idea_path(conn, :edit, idea)
@@ -51,9 +62,9 @@ defmodule KlikkerWeb.IdeaControllerTest do
   end
 
   describe "update idea" do
-    setup [:create_idea]
+    setup [:login_as_user, :create_idea]
 
-    test "redirects when data is valid", %{conn: conn, idea: idea} do
+    test "redirects when data is valid", %{conn: conn, idea: idea, user: user} do
       conn = put conn, idea_path(conn, :update, idea), idea: @update_attrs
       assert redirected_to(conn) == idea_path(conn, :show, idea)
 
@@ -68,7 +79,7 @@ defmodule KlikkerWeb.IdeaControllerTest do
   end
 
   describe "delete idea" do
-    setup [:create_idea]
+    setup [:login_as_user, :create_idea]
 
     test "deletes chosen idea", %{conn: conn, idea: idea} do
       conn = delete conn, idea_path(conn, :delete, idea)
@@ -82,5 +93,15 @@ defmodule KlikkerWeb.IdeaControllerTest do
   defp create_idea(_) do
     idea = fixture(:idea)
     {:ok, idea: idea}
+  end
+
+  defp login_as_user(%{conn: conn}) do
+    user = fixture(:user)
+    # {:ok, token, _} = Guardian.encode_and_sign(user, %{}, token_type: :access)
+    {:ok, token, _} = KlikkerGuardian.encode_and_sign(user, %{}, token_type: :access)
+    # conn = KlikkerGuardian.Plug.sign_in(conn, user)
+    # conn = guardian_login(conn, user)
+    conn = put_req_header(conn, "authorization", "bearer: " <> token)
+    {:ok, conn: conn}
   end
 end

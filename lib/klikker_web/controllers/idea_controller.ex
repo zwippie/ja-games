@@ -4,6 +4,8 @@ defmodule KlikkerWeb.IdeaController do
   alias Klikker.Games
   alias Klikker.Games.Idea
 
+  alias Klikker.Auth.Guardian, as: KlikkerGuardian
+
   def index(conn, _params) do
     ideas = Games.list_ideas()
     render(conn, "index.html", ideas: ideas)
@@ -15,15 +17,17 @@ defmodule KlikkerWeb.IdeaController do
   end
 
   def create(conn, %{"idea" => idea_params}) do
+    maybe_user = KlikkerGuardian.Plug.current_resource(conn)
+
     case Games.create_idea(idea_params) do
       {:ok, _idea} ->
         conn
         |> put_flash(:info, "Dankjewel voor je idee!")
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: page_path(conn, :index), maybe_user: maybe_user)
       {:error, %Ecto.Changeset{} = changeset} ->
         conn
         |> put_flash(:error, "Dat klopt niet helemaal.")
-        |> render(KlikkerWeb.PageView, :index, changeset: changeset)
+        |> render(KlikkerWeb.PageView, :index, changeset: changeset, maybe_user: maybe_user)
     end
   end
 
