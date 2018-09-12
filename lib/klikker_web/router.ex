@@ -37,6 +37,7 @@ defmodule KlikkerWeb.Router do
     get("/programmeren", PageController, :programmeren)
 
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/users", UserController, only: [:new, :create]
     resources "/ideas", IdeaController, only: [:create]
   end
 

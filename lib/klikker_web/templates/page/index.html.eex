@@ -13,11 +13,14 @@
       <li><%= link("Ganzenbord", to: "/ganzenbord", class: "navbar-item") %></li>
     </ul>
   </div>
-  <div class="column">
-    <p>Heb je ook een idee voor een leuk spelletje? Laat het ons dan hier weten:</p>
-    <%= render IdeaView, "form.html", Map.put(assigns, :action, idea_path(@conn, :create)) %>
 
-  </div>
+  <%= if @maybe_user do %>
+    <div class="column">
+      <p>Heb je ook een idee voor een leuk spelletje? Laat het ons dan hier weten:</p>
+      <%= render IdeaView, "form.html", Map.put(assigns, :action, idea_path(@conn, :create)) %>
+
+    </div>
+  <% end %>
 
 </div>
 

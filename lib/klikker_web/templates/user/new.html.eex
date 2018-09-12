@@ -1,0 +1,3 @@
+<h2>Maak je eigen account aan</h2>
+
+<%= render "form.html", Map.put(assigns, :action, user_path(@conn, :create)) %>

@@ -13,7 +13,8 @@ h1.title, .label {
 
 body {
   color: #f5f0f0 !important;
-  background: url("../../images/background.jpg") no-repeat
+  background: url("../../images/background.jpg") no-repeat;
+  background-position-y: 50px;
 }
 
 .container {
@@ -29,4 +30,9 @@ body {
 
 .youtube {
   margin-top: 2em;
+}
+
+.navbar {
+  background: url("../images/wolkenmenu.png") no-repeat;
+  background-position-y: -85px;
 }

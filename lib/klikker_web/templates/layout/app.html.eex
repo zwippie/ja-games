@@ -87,6 +87,9 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
+                  <%= link("Account maken", to: user_path(@conn, :new), class: "button is-link") %>
+                </p>
+                <p class="control">
                   <%= link(to: session_path(@conn, :new), class: "button is-primary") do %>
                     <span class="icon">
                       <i class="fas fa-user-circle"></i>
